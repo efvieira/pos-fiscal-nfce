@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: pos-fiscal-nfce
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/pos}
+    username: ${DB_USER:pos}
+    password: ${DB_PASSWORD:pos}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  mvc:
+    problemdetails:
+      enabled: true
+
+fiscal:
+  # 1 = produção, 2 = homologação (sem valor fiscal)
+  environment: 2
+  qr-code-url: https://www.homologacao.nfce.fazenda.sp.gov.br/qrcode
+  consult-url: https://www.homologacao.nfce.fazenda.sp.gov.br/consulta
+  cancel-window: PT30M
+  contingency-retry-interval: PT1M
+  certificate:
+    path: ${FISCAL_CERT_PATH:}
+    password: ${FISCAL_CERT_PASSWORD:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
