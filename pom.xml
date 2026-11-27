@@ -20,7 +20,7 @@
     <properties>
         <java.version>25</java.version>
         <springdoc.version>3.2.0</springdoc.version>
-        <openpdf.version>3.0.5</openpdf.version>
+        <openpdf.version>3.0.6</openpdf.version>
         <zxing.version>3.5.4</zxing.version>
         <jacoco.version>0.8.16</jacoco.version>
         <coverage.minimum>0.80</coverage.minimum>
